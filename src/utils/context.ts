@@ -1,21 +1,19 @@
 import {createContext} from "react";
+import type {ShmitterContextValue, StatsType} from "./types";
 
-export interface User {
-    avatar: string;
-    name: string;
-}
 
-export interface Stats {
-    followers: number;
-    following: number;
-}
 
-interface ShmitterContextType {
-    user: User;
-    stats: Stats;
-    changeAvatar: (url: string) => void;
-    changeName: (name: string) => void;
-    changeStats: (statsType: keyof Stats, sum: number) => void;
-}
-
-export const ShmitterContext = createContext<ShmitterContextType | null>(null);
+// export const ShmitterContext = createContext<ShmitterContextValue | null>(null);
+export const ShmitterContext = createContext<ShmitterContextValue>({
+    user: {
+        avatar: '',
+        name: ''
+    },
+    stats: {
+        followers: 0,
+        following: 0
+    },
+    changeAvatar: (url: string) => console.log(url),
+    changeName: (name: string) => console.log(name),
+    changeStats: (statsType: StatsType, sum: number) => console.log(statsType, sum)
+});

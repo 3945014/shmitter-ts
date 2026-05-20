@@ -1,9 +1,8 @@
 import {useContext} from "react";
-import {ShmitterContext, type User} from "../utils/context.ts";
+import {ShmitterContext} from "../utils/context.ts";
 
 interface AvatarProps {
-    user: User;
-    size?: string;
+    size?: 'small';
 }
 
 const Avatar = ({size}: AvatarProps) => {
